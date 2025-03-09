@@ -3,12 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Frame & Album Co. - Exquisite photo albums and frames to preserve your precious memories. Handcrafted with love and precision.">
-    <meta name="keywords" content="photo albums, picture frames, wedding albums, family albums, custom frames, memory preservation">
-    <meta name="author" content="Frame & Album Co.">
+    <meta
+      name="description"
+      content="Frame & Album Co. - Exquisite photo albums and frames to preserve your precious memories. Handcrafted with love and precision."
+    />
+    <meta
+      name="keywords"
+      content="photo albums, picture frames, wedding albums, family albums, custom frames, memory preservation"
+    />
+    <meta name="author" content="Frame & Album Co." />
+    <meta name="theme-color" content="#2c3e50" />
     <title>Frame & Album Co. | Framing Your Memories, Forever</title>
     <!-- Favicon -->
-    <link rel="icon" href="https://img.icons8.com/ios-filled/50/001F54/picture-frame.png" type="image/png">
+    <link
+      rel="icon"
+      href="https://img.icons8.com/fluency/48/photo-album.png"
+      type="image/png"
+    />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,12 +38,26 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
     <!-- Slick Carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!-- Loading Spinner -->
+    <div class="page-loader">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
       <div class="container">
@@ -47,6 +72,7 @@
         <ul class="nav-menu">
           <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="#works" class="nav-link">Works</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="gallery.html" class="nav-link">Gallery</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -55,13 +81,139 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero" style="background-image: url('https://images.unsplash.com/photo-1506806732259-39c2d0268443?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+    <section id="home" class="hero">
+      <div class="hero-slider">
+        <div class="slide active" data-index="0">
+          <div
+            class="slide-bg"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1506806732259-39c2d0268443?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            "
+          ></div>
+          <div class="slide-content">
+            <h2 class="slide-subtitle">Elegant Collection</h2>
+            <h1 class="slide-title">Timeless Frames</h1>
+            <p class="slide-description">
+              Discover our handcrafted wooden frames
+            </p>
+          </div>
+        </div>
+        <div class="slide" data-index="1">
+          <div
+            class="slide-bg"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            "
+          ></div>
+          <div class="slide-content">
+            <h2 class="slide-subtitle">Premium Selection</h2>
+            <h1 class="slide-title">Wedding Albums</h1>
+            <p class="slide-description">
+              Preserve your special moments forever
+            </p>
+          </div>
+        </div>
+        <div class="slide" data-index="2">
+          <div
+            class="slide-bg"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            "
+          ></div>
+          <div class="slide-content">
+            <h2 class="slide-subtitle">Artistic Design</h2>
+            <h1 class="slide-title">Custom Framing</h1>
+            <p class="slide-description">
+              Tailored to your unique style and space
+            </p>
+          </div>
+        </div>
+        <div class="slide" data-index="3">
+          <div
+            class="slide-bg"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1554941829-202a0b2403b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            "
+          ></div>
+          <div class="slide-content">
+            <h2 class="slide-subtitle">Family Treasures</h2>
+            <h1 class="slide-title">Heirloom Albums</h1>
+            <p class="slide-description">Crafted to last for generations</p>
+          </div>
+        </div>
+        <div class="slide" data-index="4">
+          <div
+            class="slide-bg"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            "
+          ></div>
+          <div class="slide-content">
+            <h2 class="slide-subtitle">Modern Collection</h2>
+            <h1 class="slide-title">Minimalist Frames</h1>
+            <p class="slide-description">Clean lines for contemporary spaces</p>
+          </div>
+        </div>
+      </div>
+
       <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-        <h1>Frame & Album Co.</h1>
+        <!-- <h1>Frame & Album Co.</h1>
         <h2>Framing Your Memories, Forever</h2>
         <p>Exquisite albums and frames to preserve your precious moments.</p>
-        <a href="#works" class="btn">Explore Our Collection</a>
+        <a href="#works" class="btn">Explore Our Collection</a> -->
       </div>
+
+      <div class="slider-navigation">
+        <div class="nav-progress">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="nav-controls">
+          <button class="nav-arrow prev-slide">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="nav-indicators">
+            <div class="nav-btn active" data-slide="0">
+              <span class="btn-text">01</span>
+              <svg class="btn-circle" width="40" height="40">
+                <circle class="btn-circle-bg" cx="20" cy="20" r="18" />
+                <circle class="btn-circle-fill" cx="20" cy="20" r="18" />
+              </svg>
+            </div>
+            <div class="nav-btn" data-slide="1">
+              <span class="btn-text">02</span>
+              <svg class="btn-circle" width="40" height="40">
+                <circle class="btn-circle-bg" cx="20" cy="20" r="18" />
+                <circle class="btn-circle-fill" cx="20" cy="20" r="18" />
+              </svg>
+            </div>
+            <div class="nav-btn" data-slide="2">
+              <span class="btn-text">03</span>
+              <svg class="btn-circle" width="40" height="40">
+                <circle class="btn-circle-bg" cx="20" cy="20" r="18" />
+                <circle class="btn-circle-fill" cx="20" cy="20" r="18" />
+              </svg>
+            </div>
+            <div class="nav-btn" data-slide="3">
+              <span class="btn-text">04</span>
+              <svg class="btn-circle" width="40" height="40">
+                <circle class="btn-circle-bg" cx="20" cy="20" r="18" />
+                <circle class="btn-circle-fill" cx="20" cy="20" r="18" />
+              </svg>
+            </div>
+            <div class="nav-btn" data-slide="4">
+              <span class="btn-text">05</span>
+              <svg class="btn-circle" width="40" height="40">
+                <circle class="btn-circle-bg" cx="20" cy="20" r="18" />
+                <circle class="btn-circle-fill" cx="20" cy="20" r="18" />
+              </svg>
+            </div>
+          </div>
+          <button class="nav-arrow next-slide">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
       <div class="scroll-down">
         <a href="#works">
           <span></span>
@@ -81,10 +233,7 @@
         <div class="works-grid">
           <div class="work-item" data-aos="fade-up" data-aos-delay="100">
             <div class="work-img">
-              <img
-                src="https://via.placeholder.com/600x400"
-                alt="Vintage Frame Collection"
-              />
+              <img src="images/Camera-1.jpg" alt="Vintage Frame Collection" />
               <div class="work-overlay">
                 <div class="work-info">
                   <h3>Vintage Elegance</h3>
@@ -96,10 +245,7 @@
           </div>
           <div class="work-item" data-aos="fade-up" data-aos-delay="200">
             <div class="work-img">
-              <img
-                src="https://via.placeholder.com/600x400"
-                alt="Modern Album Collection"
-              />
+              <img src="images/Camera-1.jpg" alt="Modern Album Collection" />
               <div class="work-overlay">
                 <div class="work-info">
                   <h3>Modern Minimalist</h3>
@@ -111,10 +257,7 @@
           </div>
           <div class="work-item" data-aos="fade-up" data-aos-delay="300">
             <div class="work-img">
-              <img
-                src="https://via.placeholder.com/600x400"
-                alt="Wedding Album Collection"
-              />
+              <img src="images/Camera-1.jpg" alt="Wedding Album Collection" />
               <div class="work-overlay">
                 <div class="work-info">
                   <h3>Wedding Memories</h3>
@@ -126,10 +269,7 @@
           </div>
           <div class="work-item" data-aos="fade-up" data-aos-delay="400">
             <div class="work-img">
-              <img
-                src="https://via.placeholder.com/600x400"
-                alt="Golden Frame Collection"
-              />
+              <img src="images/Camera-1.jpg" alt="Golden Frame Collection" />
               <div class="work-overlay">
                 <div class="work-info">
                   <h3>Golden Accents</h3>
@@ -141,10 +281,7 @@
           </div>
           <div class="work-item" data-aos="fade-up" data-aos-delay="500">
             <div class="work-img">
-              <img
-                src="https://via.placeholder.com/600x400"
-                alt="Family Album Collection"
-              />
+              <img src="images/Camera-1.jpg" alt="Family Album Collection" />
               <div class="work-overlay">
                 <div class="work-info">
                   <h3>Family Legacy</h3>
@@ -156,10 +293,7 @@
           </div>
           <div class="work-item" data-aos="fade-up" data-aos-delay="600">
             <div class="work-img">
-              <img
-                src="https://via.placeholder.com/600x400"
-                alt="Designer Frame Collection"
-              />
+              <img src="images/Camera-1.jpg" alt="Designer Frame Collection" />
               <div class="work-overlay">
                 <div class="work-info">
                   <h3>Designer Series</h3>
@@ -183,77 +317,307 @@
           <h2>What Our Customers Say</h2>
           <p>Stories from satisfied clients</p>
         </div>
-        <div
-          class="testimonial-carousel"
-          id="testimonialCarousel"
-          data-aos="fade-up"
-        >
-          <div class="testimonial-slide">
-            <div class="testimonial-img">
-              <img
-                src="https://via.placeholder.com/100x100"
-                alt="Client Photo"
-              />
-            </div>
-            <div class="testimonial-content">
+
+        <div class="testimonial-container" data-aos="fade-up">
+          <div class="testimonial-track">
+            <!-- Testimonial Card 1 -->
+            <div class="testimonial-card">
+              <div class="client-img">
+                <img src="images/Image-2.jpg" alt="Emily & James Thompson" />
+              </div>
+              <h3>Emily & James Thompson</h3>
               <p>
                 "The quality of their wedding album exceeded our expectations.
                 Every detail was perfect, and it's become our most treasured
                 keepsake."
               </p>
-              <h3>Emily & James Thompson</h3>
-              <span>Wedding Collection</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="client-type">Wedding Collection</span>
             </div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-img">
-              <img
-                src="https://via.placeholder.com/100x100"
-                alt="Client Photo"
-              />
-            </div>
-            <div class="testimonial-content">
+
+            <!-- Testimonial Card 2 -->
+            <div class="testimonial-card">
+              <div class="client-img">
+                <img src="images/Image-2.jpg" alt="Sarah Williams" />
+              </div>
+              <h3>Sarah Williams</h3>
               <p>
                 "I purchased the Vintage Elegance frames for my family photos,
                 and they transformed my living room. The craftsmanship is
                 outstanding."
               </p>
-              <h3>Sarah Williams</h3>
-              <span>Vintage Collection</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="client-type">Vintage Collection</span>
             </div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-img">
-              <img
-                src="https://via.placeholder.com/100x100"
-                alt="Client Photo"
-              />
-            </div>
-            <div class="testimonial-content">
+
+            <!-- Testimonial Card 3 -->
+            <div class="testimonial-card">
+              <div class="client-img">
+                <img src="images/Image-2.jpg" alt="Robert Chen" />
+              </div>
+              <h3>Robert Chen</h3>
               <p>
                 "I've been collecting Frame & Album Co. products for years. Each
                 piece tells a story and preserves our family history
                 beautifully."
               </p>
-              <h3>Robert Chen</h3>
-              <span>Loyal Customer</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="client-type">Loyal Customer</span>
             </div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-img">
-              <img
-                src="https://via.placeholder.com/100x100"
-                alt="Client Photo"
-              />
-            </div>
-            <div class="testimonial-content">
+
+            <!-- Testimonial Card 4 -->
+            <div class="testimonial-card">
+              <div class="client-img">
+                <img src="images/Image-2.jpg" alt="Michael & Lisa Johnson" />
+              </div>
+              <h3>Michael & Lisa Johnson</h3>
               <p>
                 "The customer service is as impressive as their products. They
                 helped me design a custom album that perfectly captures our
                 journey."
               </p>
-              <h3>Michael & Lisa Johnson</h3>
-              <span>Custom Collection</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="client-type">Custom Collection</span>
+            </div>
+
+            <!-- Testimonial Card 5 -->
+            <div class="testimonial-card">
+              <div class="client-img">
+                <img src="images/Image-2.jpg" alt="Rebecca Anderson" />
+              </div>
+              <h3>Rebecca Anderson</h3>
+              <p>
+                "The custom baby album they created for my daughter's first year
+                is absolutely stunning. The attention to detail and quality is
+                remarkable."
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="client-type">Baby Collection</span>
+            </div>
+
+            <!-- Testimonial Card 6 -->
+            <div class="testimonial-card">
+              <div class="client-img">
+                <img src="images/Image-2.jpg" alt="David Martinez" />
+              </div>
+              <h3>David Martinez</h3>
+              <p>
+                "The modern minimalist frames I ordered are exactly what I was
+                looking for. Clean lines, perfect finish, and excellent customer
+                service."
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="client-type">Modern Collection</span>
+            </div>
+
+            <!-- Duplicate cards for seamless looping -->
+            <!-- Testimonial Card 1 (Duplicate) -->
+            <div class="testimonial-card">
+              <div class="client-img">
+                <img
+                  src="https://via.placeholder.com/100x100"
+                  alt="Emily & James Thompson"
+                />
+              </div>
+              <h3>Emily & James Thompson</h3>
+              <p>
+                "The quality of their wedding album exceeded our expectations.
+                Every detail was perfect, and it's become our most treasured
+                keepsake."
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="client-type">Wedding Collection</span>
+            </div>
+
+            <!-- Testimonial Card 2 (Duplicate) -->
+            <div class="testimonial-card">
+              <div class="client-img">
+                <img
+                  src="https://via.placeholder.com/100x100"
+                  alt="Sarah Williams"
+                />
+              </div>
+              <h3>Sarah Williams</h3>
+              <p>
+                "I purchased the Vintage Elegance frames for my family photos,
+                and they transformed my living room. The craftsmanship is
+                outstanding."
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="client-type">Vintage Collection</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Our Portfolio</h2>
+          <p>
+            Stop wasting time and money searching for design and print partner.
+            Here we manage all your printing requirements at one stop. Happiness
+            guaranteed...
+          </p>
+        </div>
+
+        <div class="portfolio-filters" data-aos="fade-up">
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">
+              ALL WORK
+            </button>
+            <button class="filter-btn" data-filter="branding">BRANDING</button>
+            <button class="filter-btn" data-filter="designing">
+              DESIGNING
+            </button>
+            <button class="filter-btn" data-filter="printing">PRINTING</button>
+          </div>
+        </div>
+
+        <div class="portfolio-grid" data-aos="fade-up">
+          <!-- Portfolio Item 1 -->
+          <div class="portfolio-item" data-category="branding">
+            <div class="portfolio-img">
+              <img src="images/Camera-1.jpg" alt="Logo Design Project" />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <h3>LOGO DESIGN</h3>
+                  <p>
+                    Corporate identity design for a tech startup focusing on
+                    sustainable solutions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 2 -->
+          <div class="portfolio-item" data-category="designing">
+            <div class="portfolio-img">
+              <img src="images/Camera-2.jpg" alt="Brochure Design Project" />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <h3>BROCHURE DESIGN</h3>
+                  <p>
+                    Tri-fold brochure design for a luxury real estate company
+                    showcasing premium properties.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 3 -->
+          <div class="portfolio-item" data-category="printing">
+            <div class="portfolio-img">
+              <img src="images/Image-1.jpg" alt="Business Card Printing" />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <h3>BUSINESS CARDS</h3>
+                  <p>
+                    Premium business card printing with embossed gold foil for a
+                    financial advisory firm.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 4 -->
+          <div class="portfolio-item" data-category="branding">
+            <div class="portfolio-img">
+              <img src="images/Image-2.jpg" alt="Brand Identity Project" />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <h3>BRAND IDENTITY</h3>
+                  <p>
+                    Complete brand identity package including logo, stationery,
+                    and brand guidelines.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 5 -->
+          <div class="portfolio-item" data-category="designing">
+            <div class="portfolio-img">
+              <img src="images/Camera-1.jpg" alt="Packaging Design" />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <h3>PACKAGING DESIGN</h3>
+                  <p>
+                    Eco-friendly packaging design for an organic skincare brand
+                    with minimalist aesthetics.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 6 -->
+          <div class="portfolio-item" data-category="printing">
+            <div class="portfolio-img">
+              <img src="images/Camera-2.jpg" alt="Poster Printing" />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <h3>POSTER PRINTING</h3>
+                  <p>
+                    Large format poster printing for an international music
+                    festival with vibrant colors.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -290,7 +654,7 @@
             </p>
           </div>
           <div class="about-image" data-aos="fade-left">
-            <img src="https://via.placeholder.com/600x400" alt="Our Workshop" />
+            <img src="images/Image-1.jpg" alt="Our Workshop" />
           </div>
         </div>
         <div class="timeline" data-aos="fade-up">
@@ -336,6 +700,20 @@
               <div class="timeline-content">
                 <h4>2024</h4>
                 <p>Celebrating our commitment to sustainable craftsmanship</p>
+              </div>
+            </div>
+            <div
+              class="timeline-item last-item"
+              data-aos="fade-up"
+              data-aos-delay="700"
+            >
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>2025</h4>
+                <p>
+                  Planning global expansion with flagship stores in major cities
+                  worldwide
+                </p>
               </div>
             </div>
           </div>
@@ -432,6 +810,7 @@
             <ul>
               <li><a href="#home">Home</a></li>
               <li><a href="#works">Works</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="gallery.html">Gallery</a></li>
               <li><a href="#contact">Contact</a></li>
