@@ -39,6 +39,26 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Add this style for gallery filtering -->
+    <style>
+      .gallery-item {
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn {
+        cursor: pointer;
+        padding: 8px 16px;
+        margin: 0 5px;
+        border: 1px solid #ddd;
+        background: transparent;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn.active {
+        background: #2c3e50;
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <!-- Loading Spinner -->
@@ -48,7 +68,7 @@
         <div class="double-bounce2"></div>
       </div>
     </div>
-    
+
     <!-- Navigation -->
     <nav class="navbar">
       <div class="container">
@@ -102,10 +122,7 @@
         <div class="masonry-grid" id="gallery">
           <!-- Album Items -->
           <div class="gallery-item albums wedding" data-aos="fade-up">
-            <img
-              src="images/camera-2.jpg"
-              alt="Wedding Album"
-            />
+            <img src="images/camera-2.jpg" alt="Wedding Album" />
             <div class="gallery-overlay">
               <div class="gallery-info">
                 <h3>Classic Wedding Album</h3>
@@ -133,10 +150,7 @@
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <img
-              src="images/camera-2.jpg"
-              alt="Anniversary Album"
-            />
+            <img src="images/camera-2.jpg" alt="Anniversary Album" />
             <div class="gallery-overlay">
               <div class="gallery-info">
                 <h3>Anniversary Collection</h3>
@@ -150,10 +164,7 @@
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <img
-              src="images/camera-2.jpg"
-              alt="Engagement Album"
-            />
+            <img src="images/camera-2.jpg" alt="Engagement Album" />
             <div class="gallery-overlay">
               <div class="gallery-info">
                 <h3>Engagement Stories</h3>
@@ -169,10 +180,7 @@
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            <img
-              src="images/camera-2.jpg"
-              alt="Vintage Frame"
-            />
+            <img src="images/camera-2.jpg" alt="Vintage Frame" />
             <div class="gallery-overlay">
               <div class="gallery-info">
                 <h3>Vintage Elegance Frame</h3>
@@ -200,10 +208,7 @@
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <img
-              src="images/camera-2.jpg"
-              alt="Family Frame Set"
-            />
+            <img src="images/camera-2.jpg" alt="Family Frame Set" />
             <div class="gallery-overlay">
               <div class="gallery-info">
                 <h3>Family Multi-Frame</h3>
@@ -217,10 +222,7 @@
             data-aos="fade-up"
             data-aos-delay="400"
           >
-            <img
-              src="images/camera-2.jpg"
-              alt="Minimalist Frame"
-            />
+            <img src="images/camera-2.jpg" alt="Minimalist Frame" />
             <div class="gallery-overlay">
               <div class="gallery-info">
                 <h3>Modern Minimalist Frame</h3>
@@ -250,10 +252,7 @@
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <img
-              src="images/camera-2.jpg"
-              alt="Wedding Frame"
-            />
+            <img src="images/camera-2.jpg" alt="Wedding Frame" />
             <div class="gallery-overlay">
               <div class="gallery-info">
                 <h3>Wedding Memories Frame</h3>
@@ -267,10 +266,7 @@
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <img
-              src="images/camera-2.jpg"
-              alt="Heritage Album"
-            />
+            <img src="images/camera-2.jpg" alt="Heritage Album" />
             <div class="gallery-overlay">
               <div class="gallery-info">
                 <h3>Heritage Collection</h3>
@@ -362,5 +358,61 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="js/main.js"></script>
+    <!-- Add this code right before the closing </body> tag -->
+    <script>
+      $(document).ready(function () {
+        // Gallery filtering
+        $(".filter-btn").on("click", function () {
+          // Remove active class from all buttons
+          $(".filter-btn").removeClass("active");
+
+          // Add active class to clicked button
+          $(this).addClass("active");
+
+          // Get the filter value
+          const filterValue = $(this).attr("data-filter");
+
+          // Filter the gallery items
+          if (filterValue === "all") {
+            $(".gallery-item").show(300);
+          } else {
+            $(".gallery-item").hide(200);
+            $(".gallery-item." + filterValue).show(300);
+          }
+        });
+      });
+
+      // Initialize AOS library
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+      });
+
+      // Page loader
+      $(window).on("load", function () {
+        $(".page-loader").fadeOut("slow");
+      });
+
+      // Mobile menu toggle
+      $("#mobile-menu").on("click", function () {
+        $(this).toggleClass("active");
+        $(".nav-menu").toggleClass("active");
+      });
+
+      // Scroll to top button
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 300) {
+          $("#scrollTop").fadeIn();
+        } else {
+          $("#scrollTop").fadeOut();
+        }
+      });
+
+      $("#scrollTop").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 800);
+        return false;
+      });
+    </script>
   </body>
 </html>

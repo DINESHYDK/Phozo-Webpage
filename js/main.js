@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     duration: 800,
     easing: "ease-in-out",
     once: true,
+    mirror: false
   });
 
   // Advanced Hero Slider Functionality
@@ -252,40 +253,39 @@ document.addEventListener("DOMContentLoaded", function () {
     const timelineHeading = document.querySelector(".timeline h3");
     
     if (timelineItems.length > 0) {
-      // First ensure the timeline heading is visible
-      if (timelineHeading) {
-        gsap.from(timelineHeading, {
-          opacity: 0,
-          y: 30,
-          duration: 0.8,
-          scrollTrigger: {
-            trigger: ".timeline",
-            start: "top 80%",
-            toggleActions: "play none none none"
-          },
-          onComplete: function() {
-            timelineHeading.style.opacity = 1;
-            timelineHeading.style.visibility = 'visible';
+      // Function to check if element is in viewport
+      function checkScroll() {
+        timelineItems.forEach(item => {
+          const slideInAt = (window.scrollY + window.innerHeight) - item.clientHeight / 2;
+          const itemBottom = item.offsetTop + item.clientHeight;
+          const isHalfShown = slideInAt > item.offsetTop;
+          const isNotScrolledPast = window.scrollY < itemBottom;
+          
+          if (isHalfShown && isNotScrolledPast) {
+            item.classList.add('appear');
           }
         });
       }
       
-      // Then animate the timeline items with a slight delay
-      gsap.from(timelineItems, {
-        opacity: 0,
-        y: 50,
-        stagger: 0.3,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: ".timeline-container",
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none none"
-        },
-        onComplete: function() {
-          timelineItems.forEach(item => {
-            item.style.opacity = 1;
-            item.style.visibility = 'visible';
+      // Initial check on page load
+      checkScroll();
+      
+      // Check on scroll
+      window.addEventListener('scroll', checkScroll);
+      
+      // Timeline hover effects
+      timelineItems.forEach(item => {
+        const year = item.querySelector('.timeline-year');
+        const content = item.querySelector('.timeline-content');
+        
+        if (content && year) {
+          content.addEventListener('mouseenter', () => {
+            year.style.transform = 'scale(1.1)';
+            year.style.transition = 'all 0.3s ease';
+          });
+          
+          content.addEventListener('mouseleave', () => {
+            year.style.transform = 'scale(1)';
           });
         }
       });
@@ -939,5 +939,101 @@ document.addEventListener("DOMContentLoaded", function () {
         testimonialTrack.style.animationPlayState = 'running';
       }
     });
+  }
+
+  // Gallery Filtering System
+  const initGalleryFilter = () => {
+    // Initialize Masonry
+    const $grid = $('.masonry-grid').masonry({
+      itemSelector: '.gallery-item',
+      columnWidth: '.gallery-item',
+      percentPosition: true,
+      transitionDuration: '0.4s',
+      stagger: 30,
+      // Ensure items are shown smoothly
+      visibleStyle: { transform: 'translateY(0)', opacity: 1 },
+      hiddenStyle: { transform: 'translateY(20px)', opacity: 0 }
+    });
+
+    // Initialize with all items visible
+    $('.gallery-item').addClass('show');
+    
+    // Filter button click handler
+    $('.filter-btn').on('click', function() {
+      const $this = $(this);
+      const filterValue = $this.attr('data-filter');
+      
+      // Update active button state with animation
+      $('.filter-btn').removeClass('active');
+      $this.addClass('active');
+      
+      // Filter items with smooth animation
+      $('.gallery-item').each(function() {
+        const $item = $(this);
+        const shouldShow = filterValue === 'all' || $item.hasClass(filterValue);
+        
+        if (shouldShow) {
+          // Show item with animation
+          $item.addClass('show');
+          gsap.to($item, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.4,
+            ease: 'power2.out',
+            onComplete: () => $grid.masonry('layout')
+          });
+        } else {
+          // Hide item with animation
+          gsap.to($item, {
+            opacity: 0,
+            y: 20,
+            scale: 0.95,
+            duration: 0.4,
+            ease: 'power2.in',
+            onComplete: () => {
+              $item.removeClass('show');
+              $grid.masonry('layout');
+            }
+          });
+        }
+      });
+      
+      // Update masonry layout after all animations
+      setTimeout(() => {
+        $grid.masonry('layout');
+      }, 500);
+    });
+
+    // Handle images loaded to prevent layout issues
+    $grid.imagesLoaded().progress(() => {
+      $grid.masonry('layout');
+    });
+    
+    // Update layout on window resize with debounce
+    let resizeTimer;
+    $(window).on('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        $grid.masonry('layout');
+      }, 250);
+    });
+
+    // Add hover effect for gallery items
+    $('.gallery-item').hover(
+      function() {
+        $(this).find('.gallery-overlay').css('opacity', '1');
+        $(this).find('.gallery-info').css('transform', 'translateY(0)');
+      },
+      function() {
+        $(this).find('.gallery-overlay').css('opacity', '0');
+        $(this).find('.gallery-info').css('transform', 'translateY(20px)');
+      }
+    );
+  };
+
+  // Initialize gallery filter when DOM is ready
+  if ($('.gallery-grid').length) {
+    initGalleryFilter();
   }
 });
