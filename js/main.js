@@ -4,16 +4,6 @@
  * Version: 1.0
  */
 
-// Page Loader
-window.addEventListener('load', function() {
-  const loader = document.querySelector('.page-loader');
-  if (loader) {
-    setTimeout(function() {
-      loader.classList.add('loaded');
-    }, 200);
-  }
-});
-
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize AOS Animation Library
@@ -23,6 +13,37 @@ document.addEventListener("DOMContentLoaded", function () {
     once: true,
     mirror: false
   });
+
+  // Mobile Menu Toggle
+  const mobileMenu = document.getElementById("mobile-menu");
+  const navMenu = document.querySelector(".nav-menu");
+  
+  if (mobileMenu) {
+    mobileMenu.addEventListener("click", function() {
+      this.classList.toggle("active");
+      navMenu.classList.toggle("active");
+      document.body.classList.toggle("menu-open");
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener("click", function(e) {
+      if (!mobileMenu.contains(e.target) && !navMenu.contains(e.target) && navMenu.classList.contains("active")) {
+        mobileMenu.classList.remove("active");
+        navMenu.classList.remove("active");
+        document.body.classList.remove("menu-open");
+      }
+    });
+    
+    // Close menu when clicking on a nav link
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
+      link.addEventListener("click", function() {
+        mobileMenu.classList.remove("active");
+        navMenu.classList.remove("active");
+        document.body.classList.remove("menu-open");
+      });
+    });
+  }
 
   // Advanced Hero Slider Functionality
   const slides = document.querySelectorAll('.slide');
@@ -307,21 +328,61 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Navigation Menu Toggle
-  const mobileMenu = document.getElementById("mobile-menu");
-  const navMenu = document.querySelector(".nav-menu");
-
-  if (mobileMenu && navMenu) {
-    mobileMenu.addEventListener("click", function () {
-      this.classList.toggle("active");
-      navMenu.classList.toggle("active");
-    });
-
-    // Close mobile menu when clicking on a nav-link
-    document.querySelectorAll(".nav-link").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.remove("active");
-        navMenu.classList.remove("active");
+  // Gallery Filtering Functionality
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  
+  if (filterButtons.length > 0 && galleryItems.length > 0) {
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        try {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Get filter value
+          const filterValue = this.getAttribute('data-filter');
+          
+          // Filter gallery items
+          galleryItems.forEach(item => {
+            if (filterValue === 'all') {
+              item.style.display = 'block';
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'scale(1)';
+              }, 50);
+            } else {
+              if (item.classList.contains(filterValue)) {
+                item.style.display = 'block';
+                setTimeout(() => {
+                  item.style.opacity = '1';
+                  item.style.transform = 'scale(1)';
+                }, 50);
+              } else {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                  item.style.display = 'none';
+                }, 300);
+              }
+            }
+          });
+          
+          // If using masonry layout, re-layout after filtering
+          if (typeof Masonry !== 'undefined' && document.querySelector('.masonry-grid')) {
+            setTimeout(() => {
+              new Masonry('.masonry-grid', {
+                itemSelector: '.gallery-item',
+                columnWidth: '.gallery-item',
+                percentPosition: true
+              });
+            }, 350);
+          }
+        } catch (error) {
+          console.error('Error in gallery filtering:', error);
+        }
       });
     });
   }
@@ -503,73 +564,6 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => {
               document.body.removeChild(lightbox);
             }, 300);
-          }
-        });
-      });
-    });
-  }
-
-  // Product Filtering System
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const galleryItems = document.querySelectorAll(".gallery-item");
-
-  if (filterButtons.length > 0) {
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        // Remove active class from all buttons
-        filterButtons.forEach((btn) => btn.classList.remove("active"));
-
-        // Add active class to clicked button
-        this.classList.add("active");
-
-        const filterValue = this.getAttribute("data-filter");
-
-        // Show/hide gallery items based on category
-        galleryItems.forEach((item) => {
-          if (filterValue === "all") {
-            item.style.display = "block";
-          } else if (item.classList.contains(filterValue)) {
-            item.style.display = "block";
-          } else {
-            item.style.display = "none";
-          }
-        });
-      });
-    });
-  }
-
-  // Product Gallery Lightbox
-  if (galleryItems.length > 0) {
-    galleryItems.forEach((item) => {
-      item.addEventListener("click", function () {
-        const imgSrc = this.querySelector("img").getAttribute("src");
-        const imgTitle = this.querySelector("img").getAttribute("alt");
-
-        // Create lightbox
-        const lightbox = document.createElement("div");
-        lightbox.className = "lightbox";
-        lightbox.innerHTML = `
-                      <div class="lightbox-content">
-                          <span class="close-lightbox">&times;</span>
-                          <img src="${imgSrc}" alt="${imgTitle}">
-                          <div class="lightbox-caption">${imgTitle}</div>
-                      </div>
-                  `;
-
-        // Append to body
-        document.body.appendChild(lightbox);
-
-        // Prevent scrolling when lightbox is open
-        document.body.style.overflow = "hidden";
-
-        // Close lightbox when clicking on close button or outside the image
-        lightbox.addEventListener("click", function (e) {
-          if (
-            e.target === lightbox ||
-            e.target.classList.contains("close-lightbox")
-          ) {
-            document.body.removeChild(lightbox);
-            document.body.style.overflow = "auto";
           }
         });
       });
