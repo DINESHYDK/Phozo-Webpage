@@ -328,64 +328,106 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Gallery Filtering Functionality
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  
-  if (filterButtons.length > 0 && galleryItems.length > 0) {
-    filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        try {
-          // Remove active class from all buttons
-          filterButtons.forEach(btn => btn.classList.remove('active'));
+  // Initialize gallery filtering with jQuery for better compatibility
+  function initGalleryFiltering() {
+    if ($('.filter-btn').length && $('.gallery-item').length) {
+      // Show all items initially with a staggered reveal
+      $('.gallery-item').each(function(index) {
+        const $item = $(this);
+        setTimeout(function() {
+          $item.addClass('show');
+        }, index * 50); // Stagger the reveal
+      });
+      
+      // Filter items on button click
+      $('.filter-btn').on('click', function() {
+        const filterValue = $(this).attr('data-filter');
+        
+        // Update active class
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+        
+        // Filter items
+        if (filterValue === 'all') {
+          // Show all items with animation
+          $('.gallery-item').each(function(index) {
+            const $item = $(this);
+            
+            // First make it visible but with 0 opacity
+            $item.css({
+              'display': 'block',
+              'opacity': '0',
+              'transform': 'translateY(20px) scale(0.95)'
+            });
+            
+            // Then animate it in with staggered timing
+            setTimeout(function() {
+              $item.addClass('show');
+              $item.css({
+                'opacity': '1',
+                'transform': 'translateY(0) scale(1)'
+              });
+            }, 50 + (index * 30)); // Staggered animation
+          });
+        } else {
+          // Filter by category
+          let visibleCount = 0;
           
-          // Add active class to clicked button
-          this.classList.add('active');
-          
-          // Get filter value
-          const filterValue = this.getAttribute('data-filter');
-          
-          // Filter gallery items
-          galleryItems.forEach(item => {
-            if (filterValue === 'all') {
-              item.style.display = 'block';
-              setTimeout(() => {
-                item.style.opacity = '1';
-                item.style.transform = 'scale(1)';
-              }, 50);
+          $('.gallery-item').each(function() {
+            const $item = $(this);
+            const itemCategories = $item.attr('data-category') ? $item.attr('data-category').split(' ') : [];
+            const itemClasses = $item.attr('class').split(' ');
+            
+            if (itemCategories.includes(filterValue) || itemClasses.includes(filterValue)) {
+              // Show matching items
+              $item.css({
+                'display': 'block',
+                'opacity': '0',
+                'transform': 'translateY(20px) scale(0.95)'
+              });
+              
+              // Staggered animation for visible items
+              setTimeout(function() {
+                $item.addClass('show');
+                $item.css({
+                  'opacity': '1',
+                  'transform': 'translateY(0) scale(1)'
+                });
+              }, 50 + (visibleCount * 30));
+              
+              visibleCount++;
             } else {
-              if (item.classList.contains(filterValue)) {
-                item.style.display = 'block';
-                setTimeout(() => {
-                  item.style.opacity = '1';
-                  item.style.transform = 'scale(1)';
-                }, 50);
-              } else {
-                item.style.opacity = '0';
-                item.style.transform = 'scale(0.8)';
-                setTimeout(() => {
-                  item.style.display = 'none';
-                }, 300);
-              }
+              // Hide non-matching items
+              $item.removeClass('show');
+              $item.css({
+                'opacity': '0',
+                'transform': 'translateY(20px) scale(0.95)'
+              });
+              
+              setTimeout(function() {
+                $item.css('display', 'none');
+              }, 400);
             }
           });
-          
-          // If using masonry layout, re-layout after filtering
-          if (typeof Masonry !== 'undefined' && document.querySelector('.masonry-grid')) {
-            setTimeout(() => {
-              new Masonry('.masonry-grid', {
-                itemSelector: '.gallery-item',
-                columnWidth: '.gallery-item',
-                percentPosition: true
-              });
-            }, 350);
-          }
-        } catch (error) {
-          console.error('Error in gallery filtering:', error);
         }
       });
-    });
+      
+      // Ensure images are loaded before showing
+      $('.gallery-item img').on('load', function() {
+        $(this).parent().addClass('image-loaded');
+      });
+      
+      // Handle any images that are already cached
+      $('.gallery-item img').each(function() {
+        if (this.complete) {
+          $(this).trigger('load');
+        }
+      });
+    }
   }
+  
+  // Call the jQuery-based filtering function
+  initGalleryFiltering();
 
   // Sticky Navigation
   window.addEventListener("scroll", function () {
@@ -489,10 +531,12 @@ document.addEventListener("DOMContentLoaded", function () {
       
       // Filter portfolio items
       portfolioItems.forEach(item => {
-        const category = item.getAttribute('data-category');
+        // Check both class and data-category attribute for compatibility
+        const itemCategory = item.getAttribute('data-category') || '';
+        const itemClasses = Array.from(item.classList);
         
         // Show/hide items based on filter
-        if (filterValue === 'all' || filterValue === category) {
+        if (filterValue === 'all' || filterValue === itemCategory || itemClasses.includes(filterValue)) {
           // Show item with animation
           gsap.to(item, {
             scale: 1,
@@ -933,101 +977,5 @@ document.addEventListener("DOMContentLoaded", function () {
         testimonialTrack.style.animationPlayState = 'running';
       }
     });
-  }
-
-  // Gallery Filtering System
-  const initGalleryFilter = () => {
-    // Initialize Masonry
-    const $grid = $('.masonry-grid').masonry({
-      itemSelector: '.gallery-item',
-      columnWidth: '.gallery-item',
-      percentPosition: true,
-      transitionDuration: '0.4s',
-      stagger: 30,
-      // Ensure items are shown smoothly
-      visibleStyle: { transform: 'translateY(0)', opacity: 1 },
-      hiddenStyle: { transform: 'translateY(20px)', opacity: 0 }
-    });
-
-    // Initialize with all items visible
-    $('.gallery-item').addClass('show');
-    
-    // Filter button click handler
-    $('.filter-btn').on('click', function() {
-      const $this = $(this);
-      const filterValue = $this.attr('data-filter');
-      
-      // Update active button state with animation
-      $('.filter-btn').removeClass('active');
-      $this.addClass('active');
-      
-      // Filter items with smooth animation
-      $('.gallery-item').each(function() {
-        const $item = $(this);
-        const shouldShow = filterValue === 'all' || $item.hasClass(filterValue);
-        
-        if (shouldShow) {
-          // Show item with animation
-          $item.addClass('show');
-          gsap.to($item, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.4,
-            ease: 'power2.out',
-            onComplete: () => $grid.masonry('layout')
-          });
-        } else {
-          // Hide item with animation
-          gsap.to($item, {
-            opacity: 0,
-            y: 20,
-            scale: 0.95,
-            duration: 0.4,
-            ease: 'power2.in',
-            onComplete: () => {
-              $item.removeClass('show');
-              $grid.masonry('layout');
-            }
-          });
-        }
-      });
-      
-      // Update masonry layout after all animations
-      setTimeout(() => {
-        $grid.masonry('layout');
-      }, 500);
-    });
-
-    // Handle images loaded to prevent layout issues
-    $grid.imagesLoaded().progress(() => {
-      $grid.masonry('layout');
-    });
-    
-    // Update layout on window resize with debounce
-    let resizeTimer;
-    $(window).on('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        $grid.masonry('layout');
-      }, 250);
-    });
-
-    // Add hover effect for gallery items
-    $('.gallery-item').hover(
-      function() {
-        $(this).find('.gallery-overlay').css('opacity', '1');
-        $(this).find('.gallery-info').css('transform', 'translateY(0)');
-      },
-      function() {
-        $(this).find('.gallery-overlay').css('opacity', '0');
-        $(this).find('.gallery-info').css('transform', 'translateY(20px)');
-      }
-    );
-  };
-
-  // Initialize gallery filter when DOM is ready
-  if ($('.gallery-grid').length) {
-    initGalleryFilter();
   }
 });
