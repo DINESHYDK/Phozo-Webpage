@@ -59,7 +59,7 @@
 /* Autumn Warmth Theme */
 :root {
   --primary-color: #795548;
-  --secondary-color: #ff9800;
+  --secondary-color: #ebc485;
   --white-color: #ffffff;
   --light-gray: #fff3e0;
   --dark-gray: #3e2723;
@@ -112,6 +112,7 @@ a {
 
 a:hover {
   color: var(--secondary-color);
+  color: #702409;
 }
 
 img {
@@ -190,7 +191,7 @@ section {
   top: 0;
   left: 0;
   width: 100%;
-  /* z-index: 1000; */
+  z-index: 1000;
   padding: 20px 0;
   transition: var(--transition);
   background-color: transparent;
@@ -209,7 +210,7 @@ section {
 }
 
 .logo a {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 24px;
   font-weight: 700;
   color: var(--white-color);
@@ -242,7 +243,7 @@ section {
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
@@ -633,7 +634,6 @@ section {
   cursor: pointer;
 }
 
-
 .work-img {
   position: relative;
   overflow: hidden;
@@ -653,7 +653,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 31, 84, 0.8);
+  background: #0000009e;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1168,7 +1168,7 @@ section {
 }
 
 .modern-timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 4px;
   background-color: var(--primary-color);
@@ -1252,7 +1252,7 @@ section {
 }
 
 .timeline-content::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 30px;
   width: 20px;
@@ -1330,7 +1330,7 @@ section {
     left: -10px !important;
     right: auto !important;
   }
-  
+
   .timeline-image {
     height: 150px;
   }
@@ -1747,7 +1747,6 @@ section {
   transform: scale(1.05);
 }
 
-
 /* Filter Buttons */
 .gallery-filters {
   padding: 30px 0;
@@ -1778,7 +1777,7 @@ section {
 }
 
 .filter-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -1806,24 +1805,24 @@ section {
   .gallery-grid {
     padding: 15px 0;
   }
-  
+
   .gallery-item {
     margin-bottom: 20px;
   }
-  
+
   .filter-buttons {
     gap: 8px;
   }
-  
+
   .filter-btn {
     padding: 8px 20px;
     font-size: 0.8rem;
   }
-  
+
   .gallery-info h3 {
     font-size: 1.1rem;
   }
-  
+
   .gallery-info p {
     font-size: 0.8rem;
   }
@@ -1833,11 +1832,11 @@ section {
   .gallery-filters {
     padding: 20px 0;
   }
-  
+
   .filter-buttons {
     gap: 5px;
   }
-  
+
   .filter-btn {
     padding: 6px 15px;
     font-size: 0.75rem;
@@ -1855,13 +1854,17 @@ section {
 }
 
 .gallery-cta:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(44, 62, 80, 0.05) 0%, rgba(44, 62, 80, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(44, 62, 80, 0.05) 0%,
+    rgba(44, 62, 80, 0.1) 100%
+  );
   z-index: 1;
 }
 
@@ -1876,7 +1879,7 @@ section {
 }
 
 .cta-content h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 32px;
   font-weight: 600;
   color: #2c3e50;
@@ -1885,7 +1888,7 @@ section {
 }
 
 .cta-content p {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 18px;
   color: #5a6a7a;
   margin-bottom: 30px;
@@ -1897,7 +1900,7 @@ section {
   padding: 12px 28px;
   background-color: #2c3e50;
   color: #ffffff;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
@@ -1922,15 +1925,15 @@ section {
     padding: 60px 0;
     margin: 40px 0;
   }
-  
+
   .cta-content h2 {
     font-size: 28px;
   }
-  
+
   .cta-content p {
     font-size: 16px;
   }
-  
+
   .cta-content .btn {
     padding: 10px 24px;
     font-size: 14px;
@@ -1942,11 +1945,11 @@ section {
     padding: 40px 0;
     margin: 30px 0;
   }
-  
+
   .cta-content h2 {
     font-size: 24px;
   }
-  
+
   .cta-content p {
     font-size: 15px;
     margin-bottom: 25px;
@@ -1958,11 +1961,11 @@ section {
   .container {
     padding: 0 20px;
   }
-  
+
   .menu-toggle {
     display: block;
   }
-  
+
   .nav-menu {
     position: fixed;
     top: 0;
@@ -1977,24 +1980,24 @@ section {
     box-shadow: -5px 0 15px var(--shadow-color);
     z-index: 1000;
   }
-  
+
   .nav-menu.active {
     right: 0;
   }
-  
+
   .nav-menu li {
     margin: 15px 0;
   }
-  
+
   .nav-link {
     color: var(--text-color);
     font-size: 18px;
   }
-  
+
   .hero-content h1 {
     font-size: 40px;
   }
-  
+
   .hero-content p {
     font-size: 16px;
   }

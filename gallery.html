@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Explore our collections of handcrafted photo albums and frames at Frame & Album Co. Find the perfect piece to preserve your precious memories."
+      content="Explore our collections of handcrafted photo albums and frames at Phozo Digital Press Find the perfect piece to preserve your precious memories."
     />
     <meta
       name="keywords"
       content="photo album gallery, picture frame collection, wedding albums, family albums, custom frames"
     />
-    <meta name="author" content="Frame & Album Co." />
+    <meta name="author" content="Phozo Digital Press" />
     <meta name="theme-color" content="#2c3e50" />
-    <title>Gallery | Frame & Album Co.</title>
+    <title>Gallery | Phozo Digital Press</title>
     <!-- Favicon -->
     <link
       rel="icon"
@@ -45,7 +45,7 @@
       .gallery-grid {
         padding: 40px 0;
       }
-      
+
       .masonry-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -53,7 +53,7 @@
         width: 100%;
         position: relative;
       }
-      
+
       /* Gallery Item Styles */
       .gallery-item {
         position: relative;
@@ -71,7 +71,7 @@
         display: none;
         will-change: transform, opacity; /* Performance optimization */
       }
-      
+
       .gallery-item.show {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -81,7 +81,7 @@
         padding-bottom: 75%; /* Maintain aspect ratio */
         display: block;
       }
-      
+
       .gallery-item img {
         position: absolute;
         top: 0;
@@ -93,13 +93,13 @@
         -webkit-transition: -webkit-transform 0.5s ease;
         will-change: transform; /* Performance optimization */
       }
-      
+
       .gallery-item:hover img {
         transform: scale(1.05);
         -webkit-transform: scale(1.05);
         -ms-transform: scale(1.05);
       }
-      
+
       /* Gallery Overlay */
       .gallery-overlay {
         position: absolute;
@@ -116,11 +116,11 @@
         -webkit-transition: opacity 0.4s ease;
         will-change: opacity; /* Performance optimization */
       }
-      
+
       .gallery-item:hover .gallery-overlay {
         opacity: 1;
       }
-      
+
       .gallery-info {
         text-align: center;
         color: white;
@@ -133,30 +133,30 @@
         width: 100%;
         will-change: transform; /* Performance optimization */
       }
-      
+
       .gallery-item:hover .gallery-info {
         transform: translateY(0);
         -webkit-transform: translateY(0);
         -ms-transform: translateY(0);
       }
-      
+
       .gallery-info h3 {
         margin-bottom: 8px;
         font-size: 20px;
       }
-      
+
       .gallery-info p {
         margin-bottom: 12px;
         font-size: 14px;
         opacity: 0.9;
       }
-      
+
       .gallery-info .price {
         font-weight: bold;
         font-size: 18px;
         color: #e74c3c;
       }
-      
+
       /* Filter Buttons */
       .filter-buttons {
         display: flex;
@@ -165,7 +165,7 @@
         margin-bottom: 30px;
         gap: 10px;
       }
-      
+
       .filter-btn {
         cursor: pointer;
         padding: 8px 16px;
@@ -178,23 +178,23 @@
         position: relative;
         overflow: hidden;
       }
-      
+
       .filter-btn.active {
         background: #2c3e50;
         color: white;
         border-color: #2c3e50;
       }
-      
+
       .filter-btn:hover:not(.active) {
         background: #f5f5f5;
         transform: translateY(-2px);
         -webkit-transform: translateY(-2px);
         -ms-transform: translateY(-2px);
       }
-      
+
       /* Ripple effect for buttons */
       .filter-btn::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         left: 50%;
@@ -206,11 +206,15 @@
         transform: scale(1, 1) translate(-50%, -50%);
         transform-origin: 50% 50%;
       }
-      
+
       .filter-btn:focus:not(:active)::after {
         animation: ripple 1s ease-out;
       }
-      
+
+      .Follow{
+        padding-left: 60px;
+      }
+
       @keyframes ripple {
         0% {
           transform: scale(0, 0) translate(-50%, -50%);
@@ -221,41 +225,41 @@
           opacity: 0;
         }
       }
-      
+
       /* Responsive Design */
       @media (max-width: 1200px) {
         .masonry-grid {
           grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         }
       }
-      
+
       @media (max-width: 992px) {
         .masonry-grid {
           grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         }
       }
-      
+
       @media (max-width: 768px) {
         .masonry-grid {
           grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
           grid-gap: 15px;
         }
-        
+
         .gallery-info h3 {
           font-size: 18px;
         }
-        
+
         .gallery-info p {
           font-size: 13px;
         }
       }
-      
+
       @media (max-width: 576px) {
         .masonry-grid {
           grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
           grid-gap: 15px;
         }
-        
+
         .filter-buttons {
           flex-direction: row;
           overflow-x: auto;
@@ -263,32 +267,32 @@
           justify-content: flex-start;
           -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
         }
-        
+
         .filter-btn {
           flex: 0 0 auto;
           font-size: 14px;
           padding: 6px 12px;
         }
       }
-      
+
       /* Cross-browser compatibility */
       @supports not (display: grid) {
         .masonry-grid {
           display: flex;
           flex-wrap: wrap;
         }
-        
+
         .gallery-item {
           flex: 0 0 calc(33.333% - 20px);
           margin: 10px;
         }
-        
+
         @media (max-width: 992px) {
           .gallery-item {
             flex: 0 0 calc(50% - 20px);
           }
         }
-        
+
         @media (max-width: 576px) {
           .gallery-item {
             flex: 0 0 calc(100% - 20px);
@@ -302,7 +306,7 @@
     <nav class="navbar">
       <div class="container">
         <div class="logo">
-          <a href="index.html">Frame & Album Co.</a>
+          <a href="index.html">Phozo Digital Press</a>
         </div>
         <div class="menu-toggle" id="mobile-menu">
           <span class="bar"></span>
@@ -350,14 +354,17 @@
       <div class="container">
         <div class="masonry-grid" id="gallery">
           <!-- Album Items -->
-          <div class="gallery-item albums wedding" data-category="albums wedding" data-aos="fade-up">
+          <div
+            class="gallery-item albums wedding"
+            data-category="albums wedding"
+            data-aos="fade-up"
+          >
             <!-- Classic Wedding Album Product Image -->
             <img src="images/camera-2.jpg" alt="Wedding Album" />
             <div class="gallery-overlay">
               <div class="gallery-info">
                 <h3>Classic Wedding Album</h3>
                 <p>Handcrafted leather with gold embossing</p>
-                <span class="price">$199.00</span>
               </div>
             </div>
           </div>
@@ -373,7 +380,6 @@
               <div class="gallery-info">
                 <h3>Family Legacy Album</h3>
                 <p>Archival quality pages with customizable cover</p>
-                <span class="price">$159.00</span>
               </div>
             </div>
           </div>
@@ -389,7 +395,6 @@
               <div class="gallery-info">
                 <h3>Anniversary Collection</h3>
                 <p>Premium linen with silver detailing</p>
-                <span class="price">$145.00</span>
               </div>
             </div>
           </div>
@@ -405,7 +410,6 @@
               <div class="gallery-info">
                 <h3>Engagement Stories</h3>
                 <p>Modern design with custom typography</p>
-                <span class="price">$129.00</span>
               </div>
             </div>
           </div>
@@ -423,7 +427,6 @@
               <div class="gallery-info">
                 <h3>Vintage Elegance Frame</h3>
                 <p>Hand-carved wood with aged finish</p>
-                <span class="price">$85.00</span>
               </div>
             </div>
           </div>
@@ -439,7 +442,6 @@
               <div class="gallery-info">
                 <h3>Golden Accents Frame</h3>
                 <p>Metallic finish with intricate detailing</p>
-                <span class="price">$95.00</span>
               </div>
             </div>
           </div>
@@ -455,7 +457,6 @@
               <div class="gallery-info">
                 <h3>Family Portrait Frame</h3>
                 <p>Multi-photo display with custom engraving</p>
-                <span class="price">$75.00</span>
               </div>
             </div>
           </div>
@@ -471,7 +472,6 @@
               <div class="gallery-info">
                 <h3>Modern Minimalist Frame</h3>
                 <p>Clean lines with matte finish</p>
-                <span class="price">$65.00</span>
               </div>
             </div>
           </div>
@@ -489,7 +489,6 @@
               <div class="gallery-info">
                 <h3>Graduation Memories</h3>
                 <p>Personalized with school colors and emblem</p>
-                <span class="price">$135.00</span>
               </div>
             </div>
           </div>
@@ -505,7 +504,6 @@
               <div class="gallery-info">
                 <h3>Wedding Vows Frame</h3>
                 <p>Elegant design with space for vows text</p>
-                <span class="price">$110.00</span>
               </div>
             </div>
           </div>
@@ -521,7 +519,6 @@
               <div class="gallery-info">
                 <h3>Baby's First Year</h3>
                 <p>Month-by-month layout with milestone markers</p>
-                <span class="price">$149.00</span>
               </div>
             </div>
           </div>
@@ -537,7 +534,6 @@
               <div class="gallery-info">
                 <h3>Anniversary Celebration</h3>
                 <p>Dual photo display with date engraving</p>
-                <span class="price">$89.00</span>
               </div>
             </div>
           </div>
@@ -549,9 +545,19 @@
     <div class="gallery-cta">
       <div class="container">
         <div class="cta-content">
-          <h2 data-aos="fade-up" data-aos-delay="100">Can't find what you're looking for?</h2>
-          <p data-aos="fade-up" data-aos-delay="200">We offer custom designs tailored to your specific needs.</p>
-          <a href="index.html#contact" class="btn" data-aos="fade-up" data-aos-delay="300">Contact Us</a>
+          <h2 data-aos="fade-up" data-aos-delay="100">
+            Can't find what you're looking for?
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="200">
+            We offer custom designs tailored to your specific needs.
+          </p>
+          <a
+            href="index.html#contact"
+            class="btn"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            >Contact Us</a
+          >
         </div>
       </div>
     </div>
@@ -561,7 +567,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-logo">
-            <h2>Frame & Album Co.</h2>
+            <h2>Phozo Digital Press</h2>
             <p>Framing Your Memories, Forever</p>
           </div>
           <div class="footer-links">
@@ -575,7 +581,7 @@
             </ul>
           </div>
           <div class="footer-social">
-            <h3>Follow Us</h3>
+            <h3 class="Follow">Follow Us</h3>
             <div class="social-icons">
               <a href="#"><i class="fab fa-facebook-f"></i></a>
               <a href="#"><i class="fab fa-instagram"></i></a>
@@ -596,7 +602,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 Frame & Album Co. All Rights Reserved</p>
+          <p>&copy; 2025 Phozo Digital Press All Rights Reserved</p>
         </div>
       </div>
     </footer>
@@ -611,133 +617,142 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="js/main.js"></script>
-    
+
     <!-- Gallery Page Specific Script -->
     <script>
-      $(document).ready(function() {
+      $(document).ready(function () {
         // Browser detection for specific fixes
         const isIE = !!document.documentMode;
         const isEdge = !isIE && !!window.StyleMedia;
-        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-        
+        const isSafari = /^((?!chrome|android).)*safari/i.test(
+          navigator.userAgent
+        );
+
         // Apply specific fixes for browsers if needed
         if (isIE || isEdge) {
-          $('.gallery-item').css({
-            'transition': 'opacity 0.4s ease, transform 0.4s ease',
-            'display': 'inline-block'
+          $(".gallery-item").css({
+            transition: "opacity 0.4s ease, transform 0.4s ease",
+            display: "inline-block",
           });
         }
-        
+
         // Initialize with all items visible
-        setTimeout(function() {
-          $('.gallery-item').each(function(index) {
+        setTimeout(function () {
+          $(".gallery-item").each(function (index) {
             const $item = $(this);
-            setTimeout(function() {
-              $item.addClass('show');
+            setTimeout(function () {
+              $item.addClass("show");
             }, index * 50); // Staggered reveal
           });
         }, 100);
-        
+
         // Filter items on button click
-        $('.filter-btn').on('click', function() {
-          const filterValue = $(this).attr('data-filter');
-          
+        $(".filter-btn").on("click", function () {
+          const filterValue = $(this).attr("data-filter");
+
           // Update active class
-          $('.filter-btn').removeClass('active');
-          $(this).addClass('active');
-          
-          if (filterValue === 'all') {
+          $(".filter-btn").removeClass("active");
+          $(this).addClass("active");
+
+          if (filterValue === "all") {
             // Show all items with animation
-            $('.gallery-item').each(function(index) {
+            $(".gallery-item").each(function (index) {
               const $item = $(this);
-              
+
               // First make it visible but with 0 opacity
               $item.css({
-                'display': 'block',
-                'opacity': '0',
-                'transform': 'translateY(20px) scale(0.95)',
-                '-webkit-transform': 'translateY(20px) scale(0.95)',
-                '-ms-transform': 'translateY(20px) scale(0.95)'
+                display: "block",
+                opacity: "0",
+                transform: "translateY(20px) scale(0.95)",
+                "-webkit-transform": "translateY(20px) scale(0.95)",
+                "-ms-transform": "translateY(20px) scale(0.95)",
               });
-              
+
               // Then animate it in
-              setTimeout(function() {
-                $item.addClass('show');
+              setTimeout(function () {
+                $item.addClass("show");
                 $item.css({
-                  'opacity': '1',
-                  'transform': 'translateY(0) scale(1)',
-                  '-webkit-transform': 'translateY(0) scale(1)',
-                  '-ms-transform': 'translateY(0) scale(1)'
+                  opacity: "1",
+                  transform: "translateY(0) scale(1)",
+                  "-webkit-transform": "translateY(0) scale(1)",
+                  "-ms-transform": "translateY(0) scale(1)",
                 });
-              }, 50 + (index * 30)); // Staggered animation
+              }, 50 + index * 30); // Staggered animation
             });
           } else {
             // Filter by category
             let visibleCount = 0;
-            
-            $('.gallery-item').each(function() {
+
+            $(".gallery-item").each(function () {
               const $item = $(this);
-              const categories = $item.attr('data-category') ? $item.attr('data-category').split(' ') : [];
-              const itemClasses = $item.attr('class').split(' ');
-              
-              if (categories.includes(filterValue) || itemClasses.includes(filterValue)) {
+              const categories = $item.attr("data-category")
+                ? $item.attr("data-category").split(" ")
+                : [];
+              const itemClasses = $item.attr("class").split(" ");
+
+              if (
+                categories.includes(filterValue) ||
+                itemClasses.includes(filterValue)
+              ) {
                 // Show matching items
                 $item.css({
-                  'display': 'block',
-                  'opacity': '0',
-                  'transform': 'translateY(20px) scale(0.95)',
-                  '-webkit-transform': 'translateY(20px) scale(0.95)',
-                  '-ms-transform': 'translateY(20px) scale(0.95)'
+                  display: "block",
+                  opacity: "0",
+                  transform: "translateY(20px) scale(0.95)",
+                  "-webkit-transform": "translateY(20px) scale(0.95)",
+                  "-ms-transform": "translateY(20px) scale(0.95)",
                 });
-                
-                setTimeout(function() {
-                  $item.addClass('show');
+
+                setTimeout(function () {
+                  $item.addClass("show");
                   $item.css({
-                    'opacity': '1',
-                    'transform': 'translateY(0) scale(1)',
-                    '-webkit-transform': 'translateY(0) scale(1)',
-                    '-ms-transform': 'translateY(0) scale(1)'
+                    opacity: "1",
+                    transform: "translateY(0) scale(1)",
+                    "-webkit-transform": "translateY(0) scale(1)",
+                    "-ms-transform": "translateY(0) scale(1)",
                   });
-                }, 50 + (visibleCount * 30));
-                
+                }, 50 + visibleCount * 30);
+
                 visibleCount++;
               } else {
                 // Hide non-matching items
-                $item.removeClass('show');
+                $item.removeClass("show");
                 $item.css({
-                  'opacity': '0',
-                  'transform': 'translateY(20px) scale(0.95)',
-                  '-webkit-transform': 'translateY(20px) scale(0.95)',
-                  '-ms-transform': 'translateY(20px) scale(0.95)'
+                  opacity: "0",
+                  transform: "translateY(20px) scale(0.95)",
+                  "-webkit-transform": "translateY(20px) scale(0.95)",
+                  "-ms-transform": "translateY(20px) scale(0.95)",
                 });
-                
-                setTimeout(function() {
-                  $item.css('display', 'none');
+
+                setTimeout(function () {
+                  $item.css("display", "none");
                 }, 400);
               }
             });
           }
         });
-        
+
         // Ensure images are loaded before showing
-        $('.gallery-item img').on('load', function() {
-          $(this).parent().addClass('image-loaded');
+        $(".gallery-item img").on("load", function () {
+          $(this).parent().addClass("image-loaded");
         });
-        
+
         // Handle any images that are already cached
-        $('.gallery-item img').each(function() {
+        $(".gallery-item img").each(function () {
           if (this.complete) {
-            $(this).trigger('load');
+            $(this).trigger("load");
           }
         });
-        
+
         // Add touch support for mobile devices
-        if ('ontouchstart' in window) {
-          $('.gallery-item').on('touchstart', function() {
-            $(this).addClass('touch-hover');
-          }).on('touchend', function() {
-            $(this).removeClass('touch-hover');
-          });
+        if ("ontouchstart" in window) {
+          $(".gallery-item")
+            .on("touchstart", function () {
+              $(this).addClass("touch-hover");
+            })
+            .on("touchend", function () {
+              $(this).removeClass("touch-hover");
+            });
         }
       });
     </script>
