@@ -872,6 +872,120 @@
           <div class="footer-logo">
             <h2>Frame & Album Co.</h2>
             <p>Framing Your Memories, Forever</p>
+            <button class="credits-button" onclick="animateAndRedirect()">
+              <i class="fas fa-code icon-spin"></i>
+              Designed & Coded by YDK-Eswar-Chakri
+            </button>
+
+            <style>
+              .credits-button {
+                background: linear-gradient(
+                  -45deg,
+                  #ee7752,
+                  #e73c7e,
+                  #23a6d5,
+                  #23d5ab
+                );
+                background-size: 400% 400%;
+                animation: gradient 10s ease infinite;
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 50px;
+                font-family: "Lato", sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                transition: all 0.4s ease;
+                /* Removed fixed positioning */
+                position: relative;
+                margin-top: 15px;
+                /* Removed bottom, right positioning */
+                z-index: 999;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                overflow: hidden;
+              }
+
+              .credits-button:hover {
+                transform: translateY(-5px) scale(1.05);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                letter-spacing: 1px;
+              }
+
+              .credits-button::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                  90deg,
+                  transparent,
+                  rgba(255, 255, 255, 0.4),
+                  transparent
+                );
+                transition: 0.5s;
+              }
+
+              .credits-button:hover::before {
+                left: 100%;
+              }
+
+              @keyframes gradient {
+                0% {
+                  background-position: 0% 50%;
+                }
+                50% {
+                  background-position: 100% 50%;
+                }
+                100% {
+                  background-position: 0% 50%;
+                }
+              }
+
+              .icon-spin {
+                display: inline-block;
+                transition: transform 0.3s ease;
+              }
+
+              @keyframes fullSpin {
+                0% {
+                  transform: rotate(0deg) scale(1);
+                }
+                50% {
+                  transform: rotate(180deg) scale(1.5);
+                }
+                100% {
+                  transform: rotate(360deg) scale(1);
+                }
+              }
+
+              .animate-icon {
+                animation: fullSpin 1s ease;
+              }
+            </style>
+
+            <script>
+              function animateAndRedirect() {
+                const button = document.querySelector(".credits-button");
+                const icon = document.querySelector(".icon-spin");
+
+                // Prevent default click behavior
+                event.preventDefault();
+
+                // Add animation class to icon
+                icon.classList.add("animate-icon");
+
+                // Wait for animation to complete before redirecting
+                setTimeout(function () {
+                  window.location.href = "../loaderanimation.html";
+                }, 1000);
+              }
+            </script>
           </div>
           <div class="footer-links">
             <h3>Quick Links</h3>
