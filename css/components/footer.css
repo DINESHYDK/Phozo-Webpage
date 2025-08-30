@@ -1,0 +1,218 @@
+/* Footer Component Styles */
+
+.footer {
+  background: var(--primary-color);
+  color: var(--white-color);
+  padding: var(--spacing-3xl) 0 var(--spacing-lg);
+  margin-top: var(--spacing-3xl);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: var(--spacing-md);
+  color: var(--white-color);
+  font-family: var(--font-secondary);
+}
+
+.footer-section h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+}
+
+.footer-section h4 {
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+}
+
+.footer-section p {
+  margin-bottom: var(--spacing-md);
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-section ul li a {
+  color: var(--white-color);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: var(--transition-base);
+}
+
+.footer-section ul li a:hover {
+  opacity: 1;
+  color: var(--secondary-color);
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white-color);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.social-icons a:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* Newsletter Form */
+.newsletter-form {
+  display: flex;
+  margin-top: var(--spacing-md);
+  max-width: 300px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white-color);
+  font-size: var(--font-size-sm);
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.newsletter-form input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.newsletter-form button {
+  padding: 10px 15px;
+  border: none;
+  background: var(--secondary-color);
+  color: var(--white-color);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.newsletter-form button:hover {
+  background: #c0392b;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--spacing-lg);
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  opacity: 0.7;
+  font-size: var(--font-size-sm);
+}
+
+/* Contact Items */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-item i {
+  font-size: var(--font-size-xl);
+  color: var(--secondary-color);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.contact-item h4 {
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+.contact-item p {
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--spacing-2xl) 0 var(--spacing-md);
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .newsletter-form {
+    margin: var(--spacing-md) auto 0;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-sm);
+  }
+
+  .contact-item i {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-section h3 {
+    font-size: var(--font-size-xl);
+  }
+
+  .social-icons a {
+    width: 36px;
+    height: 36px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-xs);
+  }
+}

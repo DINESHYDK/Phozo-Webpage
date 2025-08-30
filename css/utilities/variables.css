@@ -1,0 +1,107 @@
+/* CSS Custom Properties (Variables) */
+:root {
+  /* Colors */
+  --primary-color: #2c3e50;
+  --secondary-color: #e74c3c;
+  --accent-color: #3498db;
+  --white-color: #ffffff;
+  --light-gray: #ecf0f1;
+  --medium-gray: #bdc3c7;
+  --dark-gray: #2c3e50;
+  --black-color: #2c3e50;
+
+  /* Typography */
+  --font-primary: "Lato", sans-serif;
+  --font-secondary: "Playfair Display", serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-base: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --primary-color: #34495e;
+  --secondary-color: #e67e22;
+  --white-color: #2c3e50;
+  --light-gray: #34495e;
+  --medium-gray: #7f8c8d;
+  --dark-gray: #ecf0f1;
+  --black-color: #ffffff;
+}
+
+/* Alternative Color Themes */
+
+/* Royal Theme */
+.theme-royal {
+  --primary-color: #4b0082;
+  --secondary-color: #daa520;
+  --accent-color: #9370db;
+}
+
+/* Vintage Theme */
+.theme-vintage {
+  --primary-color: #331900;
+  --secondary-color: #8b0000;
+  --accent-color: #cd853f;
+}
+
+/* Natural Theme */
+.theme-natural {
+  --primary-color: #5d4037;
+  --secondary-color: #8d6e63;
+  --accent-color: #a1887f;
+}
+
+/* Ocean Theme */
+.theme-ocean {
+  --primary-color: #006064;
+  --secondary-color: #00acc1;
+  --accent-color: #26c6da;
+}
