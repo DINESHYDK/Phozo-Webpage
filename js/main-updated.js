@@ -1,5 +1,5 @@
 /*
- * Phozo Digital Press
+ * EverFrame
  * Main JavaScript File - Modular Structure
  * Version: 2.0
  */

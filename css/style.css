@@ -211,10 +211,10 @@ section {
 
 .logo a {
   font-family: "Playfair Display", serif;
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 900;
   color: var(--white-color);
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 .navbar.sticky .logo a {
@@ -2042,9 +2042,8 @@ section {
     padding: 15px 0 !important;
   }
 
-  .logo {
-    max-width: 120px !important;
-    height: auto !important;
+  .logo a {
+    font-size: 26px !important;
   }
 
   .nav-link {

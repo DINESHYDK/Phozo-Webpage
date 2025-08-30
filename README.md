@@ -1,35 +1,39 @@
-# Frame & Album Co. Website
+# EverFrame Website
 
-A professional website for Frame & Album Co., showcasing their collection of handcrafted photo albums and frames.
+A professional website for EverFrame, showcasing their collection of handcrafted photo albums and frames.
 
-![Frame & Album Co. Website](https://img.icons8.com/fluency/48/photo-album.png)
+![EverFrame Website](https://img.icons8.com/fluency/48/photo-album.png)
 
 ## Project Description
 
-Frame & Album Co. is a premium brand specializing in handcrafted photo albums and frames. This website serves as their digital storefront, allowing customers to explore their collections, learn about the company's history, and contact them for custom orders.
+EverFrame is a premium brand specializing in handcrafted photo albums and frames. This website serves as their digital storefront, allowing customers to explore their collections, learn about the company's history, and contact them for custom orders.
 
 The website features a modern, responsive design with smooth animations and interactive elements to provide an engaging user experience that reflects the premium nature of the brand's products.
 
 ## Features
 
 ### Responsive Design
+
 - Fully responsive layout that adapts to all screen sizes (mobile, tablet, desktop)
 - Mobile-friendly navigation with animated hamburger menu
 - Optimized images and content for different devices
 
 ### Interactive Gallery
+
 - Filterable gallery with smooth animations
 - Category-based filtering (Albums, Frames, Wedding, Family, Special Occasions)
 - Masonry grid layout for visually appealing presentation
 - Product details displayed on hover
 
 ### Theme Switching
+
 - Light and dark theme options
 - Smooth transition animations between themes
 - User preference saved in localStorage
 - Consistent styling across both themes
 
 ### Advanced UI Components
+
 - Hero slider with progress indicators
 - Animated timeline for company history
 - Testimonial carousel
@@ -37,6 +41,7 @@ The website features a modern, responsive design with smooth animations and inte
 - Back-to-top button with scroll detection
 
 ### Performance Optimizations
+
 - Lazy loading of images
 - Optimized animations for better performance
 - Minified CSS and JavaScript
@@ -56,12 +61,14 @@ The website features a modern, responsive design with smooth animations and inte
 ## Installation and Setup
 
 1. **Clone the repository**
+
    ```
    git clone https://github.com/yourusername/frame-album-co.git
    cd frame-album-co
    ```
 
 2. **Open the project**
+
    - Open the project folder in your preferred code editor
    - No build process is required as this is a static website
 
@@ -79,6 +86,7 @@ The website features a modern, responsive design with smooth animations and inte
 To add new items to the gallery:
 
 1. Add a new HTML element to the gallery grid in `gallery.html`:
+
    ```html
    <div class="gallery-item [category-classes]" data-aos="fade-up">
      <!-- [Product Type] Product Image -->

@@ -1,6 +1,7 @@
 # Recommended Project Structure
 
 ## Current Issues with Your Structure:
+
 1. **Large monolithic files** - Your main CSS and JS files are too large
 2. **Mixed case naming** - Some folders use PascalCase (Images), others lowercase (css, js)
 3. **No organization** - All images in one folder regardless of purpose
@@ -10,7 +11,7 @@
 ## Recommended New Structure:
 
 ```
-phozo-digital-press/
+everframe/
 ├── assets/                     # All static assets
 │   ├── images/
 │   │   ├── gallery/           # Gallery images
@@ -59,26 +60,31 @@ phozo-digital-press/
 ## Benefits of This Structure:
 
 ### 1. **Modularity**
+
 - Each component has its own CSS/JS file
 - Easy to maintain and debug
 - Better code organization
 
 ### 2. **Scalability**
+
 - Easy to add new components
 - Clear separation of concerns
 - Reusable code blocks
 
 ### 3. **Performance**
+
 - Smaller file sizes
 - Better caching strategies
 - Conditional loading possible
 
 ### 4. **Development Experience**
+
 - Easier to find specific code
 - Better collaboration
 - Consistent naming conventions
 
 ### 5. **Build Process**
+
 - Automated minification
 - Image optimization
 - Code validation
@@ -86,22 +92,26 @@ phozo-digital-press/
 ## Implementation Steps:
 
 1. **Reorganize Images**
+
    ```bash
    mkdir -p assets/images/{gallery,hero,logos,portfolio,testimonials}
    # Move images to appropriate folders
    ```
 
 2. **Split CSS Files**
+
    - Extract navigation styles to `css/components/navigation.css`
    - Extract hero styles to `css/components/hero.css`
    - Create utility classes in `css/utilities/`
 
 3. **Modularize JavaScript**
+
    - Split slider functionality into `js/components/slider.js`
    - Create gallery filter in `js/components/gallery.js`
    - Add utility functions in `js/utils/`
 
 4. **Add Build Tools**
+
    - Install development dependencies
    - Set up minification scripts
    - Add image optimization
